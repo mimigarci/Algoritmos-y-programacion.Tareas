@@ -1,5 +1,5 @@
-Tareas para clase.\n
+Tareas para clase.
 
+Tarea 1: Programa para hacer una arepa. 
 
-Tarea 1: Programa para hacer una arepa. \n
 Tarea 2: Calculadora del año bisiesto.
