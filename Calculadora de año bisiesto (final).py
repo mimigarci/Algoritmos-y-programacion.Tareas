@@ -1,5 +1,6 @@
 #Calcular el año bisiesto
 
+#Limpia la terminal.
 import os
 os.system('cls')
 
