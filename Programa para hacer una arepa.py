@@ -24,13 +24,22 @@ sal = sal/3/16
 #Crear la mezcla de la arepa
 masa = agua + harina + sal
 
+#Imprimir la mezcla de la arepa.
 print ("\n Ok, la mezcla está lista. El volumen de la masa es igual a ", masa ,"tazas") 
 
+#Definir el valor del aceite.
 aceite = float (input  ("\n Para cocinar la arepa ¿Cuántas cucharadas de aceite deberíamos utilizar? "))
 aceite = aceite/16
 
 #Cocinar la arepa
 budare = masa + aceite
+
+print ("\n La arepa está lista, ahora su volumen es igual a ", budare) 
+
+#Finaliza el programa.
+print ("Ya está lista para ser servida")
+
+
 
 print ("\n La arepa está lista, ahora su volumen es igual a ", budare) 
 
