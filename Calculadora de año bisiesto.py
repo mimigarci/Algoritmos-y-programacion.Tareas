@@ -1,8 +1,12 @@
 #Calcular el año bisiesto
+# Autor: Michelle Garcia
+# Fecha: 21/01/2024
 
+#Limpiar la pantalla
 import os
 os.system('cls')
 
+#Contador de años bisiestos.
 count = 1
 
 #Introducir el año a evaluar.
@@ -40,6 +44,7 @@ if año >= 1900 and año <= 2199:
     #El contador empieza el 1 debido a que el año inicial es bisiesto.
         count = 1
     else:
+        #No se ejecuta ninguna acción.
         pass
 
     #Por cada año que sea bisiesto dentro del rango, se le añadirá 1 al contador.
