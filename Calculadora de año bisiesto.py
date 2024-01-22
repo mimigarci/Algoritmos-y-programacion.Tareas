@@ -1,6 +1,5 @@
 #Calcular el año bisiesto
 
-#Limpia la terminal.
 import os
 os.system('cls')
 
@@ -40,10 +39,16 @@ if año >= 1900 and año <= 2199:
     if n == 1:
     #El contador empieza el 1 debido a que el año inicial es bisiesto.
         count = 1
+    else:
+        pass
+
     #Por cada año que sea bisiesto dentro del rango, se le añadirá 1 al contador.
     for año in range (1900, año):
+       #Si es disivisible entre 4 pasa al próximo condicional.
        if año%4 == 0 :
+        #Si es disivisible entre 100 pasa al próximo condicional.
         if año%100 == 0:
+            #Si es disivisible entre 400 pasa al próximo condicional.
             if año%400 == 0:
                 count += 1
                 #Es bisiesto.
@@ -69,3 +74,4 @@ if año >= 1900 and año <= 2199:
 #No entra dentro de los parámetros.
 else: 
     print("Este año no está dentro de los parámetros")
+
