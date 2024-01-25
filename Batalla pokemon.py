@@ -1,4 +1,7 @@
+#23/01/24
 #Hagamos una batalla pokemon 
+#Autor: Michelle García
+
 
 #Limpiar la pantalla
 import os
