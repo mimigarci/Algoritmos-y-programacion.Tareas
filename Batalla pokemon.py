@@ -127,8 +127,6 @@ elif PS_jugador <= 0 and PS_oponente <= 0:
     print ("Empate") 
 
 else:
-
-   
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
     
