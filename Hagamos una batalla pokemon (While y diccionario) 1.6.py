@@ -1,5 +1,5 @@
-#23/01/24
-#Hagamos una batalla pokemon 
+#28/01/24
+#Hagamos una batalla pokemon utilizando diccionarios
 #Autor: Michelle García
 
 #Limpiar la pantalla
@@ -9,20 +9,28 @@ os.system('cls')
 #Obtener el randomzizador
 import random
 
-#Definir las variables
+#Definir las variables principales.
 
+#Puntos de vida del jugador y su oponente.
 PS_jugador = 100
 PS_oponente = 100
+
+#Defensa del jugador y el oponente.
 defensa_oponente = 100
 defensa_jugador = 100
+
+#Lista con los ataques del jugador.
 ataque = ["malicioso", "placaje", "ascuas"]
 
+#Diccionario para llevar la cuenta de cuando se ejecuta cada ataque.
 registro = {"malicioso" : 0, 
             "placaje": 0,
             "ascuas": 0}
 
+#Introducción a la batalla.
 print ("¿Estás listo para tu primera batalla pokemon? ")
 
+#Primer ataque de la partida.
 ataque_jugador = input("\n¿Cuál va a ser tu ataque? ")
 
 #Ciclo para ejecutar la batalla.
@@ -96,7 +104,8 @@ while PS_jugador > 0 and PS_oponente > 0:
 
     #El ataque del oponente será igual a un número cualquiera entre el 1 y el 3.
     ataque_oponente= random.randrange(1,3+1)
-    
+
+            #El oponente solo ha de atacar si el ataque introducido por el usuario es válido.
     if ataque_jugador == ataque[0] or ataque_jugador == ataque[1] or ataque_jugador == ataque[2] :
         #Si el ataque del oponente es igual a látigo (1).
         if ataque_oponente == 1: 
@@ -116,8 +125,8 @@ while PS_jugador > 0 and PS_oponente > 0:
         elif ataque_jugador == 2:
             PS_jugador -= 35* (100/defensa_jugador)
 
-
-        elif ataque_oponente == 3: #Pistola de agua
+            #Si el ataque del oponente es pistola de agua, el jugador perderá 40 puntos de vida.
+        elif ataque_oponente == 3: 
             PS_jugador -= 40
 
         else:
