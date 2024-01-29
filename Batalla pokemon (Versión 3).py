@@ -147,10 +147,10 @@ if PS_oponente <= 0 and PS_jugador > 0:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
-    print ("Felicidades, has ganado! \n")
+    print ("\nFelicidades, has ganado! \n")
 
     print ("Tus movimientos fueron: ", r_jugador)
-    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente, "\n")
 
 ##Si las vida del oponente es mayor que 0 y la vida del oponente es menor o igual a 0, el oponente habrá ganado y se ha de imprimir el registro de la batalla.
 
@@ -159,20 +159,20 @@ elif PS_jugador <= 0 and PS_oponente > 0:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
-    print ("Lo siento, has perdido! \n")
+    print ("\nLo siento, has perdido! \n")
 
     print ("Tus movimientos fueron: ", r_jugador)
-    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente, "\n")
 
 #Si las vidas de los jugadores son menores o iguales a 0, se considerará un empate y se ha de imprimir el registro de la batalla.
 elif PS_jugador <= 0 and PS_oponente <= 0:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
-    print ("Es un empate! \n") 
+    print ("\nEs un empate! \n") 
 
     print ("Tus movimientos fueron: ", r_jugador)
-    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente, "\n")
 
 #Si las vidas de los participantes no cumplen con las condiciones establecidas, se ha de imprimir su vida y se acabará el juego.
 else:
@@ -180,8 +180,6 @@ else:
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
     
     quit ()
-
-    
-
+ 
 
 
