@@ -9,6 +9,7 @@ os.system('cls')
 #Obtener el randomzizador
 import random
 
+
 #Definir las variables principales.
 
 #Puntos de vida del jugador y su oponente.
@@ -22,10 +23,16 @@ defensa_jugador = 100
 #Lista con los ataques del jugador.
 ataque = ["malicioso", "placaje", "ascuas"]
 
-#Diccionario para llevar la cuenta de cuando se ejecuta cada ataque.
-registro = {"malicioso" : 0, 
+#Registro de los ataques del jugador.
+r_jugador = {"malicioso" : 0, 
             "placaje": 0,
             "ascuas": 0}
+
+#Registro de los ataques del oponente.
+r_oponente = {"latigo" : 0, 
+            "placaje": 0,
+            "pistola de agua": 0}
+
 
 #Introducción a la batalla.
 print ("¿Estás listo para tu primera batalla pokemon? ")
@@ -39,7 +46,7 @@ while PS_jugador > 0 and PS_oponente > 0:
     #Si el ataque del jugador es malicioso, la vida del oponente disminuirá en 10 y se añadirá 1 a malicioso dentro del registro.
     if ataque_jugador == ataque[0]:
         PS_oponente -= 10
-        registro["malicioso"] += 1
+        r_jugador["malicioso"] += 1
 
         #Mientras los puntos de vida del jugador y el oponente sean mayores que 0, continua la batalla.
         if PS_oponente > 0 and PS_jugador > 0:
@@ -59,7 +66,7 @@ while PS_jugador > 0 and PS_oponente > 0:
         #Si el ataque del jugador es placaje, la vida del oponente disminuirá en 35* (100/defensa_oponente) y se añadirá 1 a placaje dentro dal registro.
     elif ataque_jugador == ataque[1]:
         PS_oponente -= 35* (100/defensa_oponente)
-        registro["placaje"] += 1
+        r_jugador["placaje"] += 1
         
         #Mientras los puntos de vida del jugador y el oponente sean mayores que 0, continua la batalla.
         if PS_oponente > 0 and PS_jugador > 0:
@@ -74,7 +81,7 @@ while PS_jugador > 0 and PS_oponente > 0:
     #Si el ataque del jugador es ascuas, la vida del oponente disminuirá en 20 y se añadirá 1 a ascuas dentro del registro.
     elif ataque_jugador == ataque[2]:
         PS_oponente -= 20
-        registro["ascuas"] += 1
+        r_jugador["ascuas"] += 1
 
         #Mientras los puntos de vida del jugador y el oponente sean mayores que 0, continua la batalla.
         if PS_oponente > 0 and PS_jugador > 0:
@@ -92,11 +99,6 @@ while PS_jugador > 0 and PS_oponente > 0:
         PS_jugador = PS_jugador
         PS_oponente = PS_oponente
 
-        print(PS_jugador)
-        print(PS_oponente)
-        print(defensa_jugador)
-        print(defensa_oponente)
-
         ataque_jugador = input("Siguiente ataque: ")
 
 
@@ -105,11 +107,12 @@ while PS_jugador > 0 and PS_oponente > 0:
     #El ataque del oponente será igual a un número cualquiera entre el 1 y el 3.
     ataque_oponente= random.randrange(1,3+1)
 
-            #El oponente solo ha de atacar si el ataque introducido por el usuario es válido.
+    #El oponente solo ha de atacar si el ataque introducido por el usuario es válido.
     if ataque_jugador == ataque[0] or ataque_jugador == ataque[1] or ataque_jugador == ataque[2] :
         #Si el ataque del oponente es igual a látigo (1).
         if ataque_oponente == 1: 
             PS_jugador -= 10 
+            r_oponente["latigo"] += 1
 
             #Y la defensa del oponente es menor o igual a 0, la defensa del jugador disminuirá en 10.
             if defensa_oponente >= 0:
@@ -120,28 +123,36 @@ while PS_jugador > 0 and PS_oponente > 0:
                     defensa_jugador = 1
                 else:
                     defensa_jugador = defensa_jugador
+            else:
+                continue
 
-            #En caso de que el ataque del jugador sea placaje, su vida disminuirá en un 35* (100/defensa_jugador) 
+        #En caso de que el ataque del jugador sea placaje, su vida disminuirá en un 35* (100/defensa_jugador) 
         elif ataque_jugador == 2:
             PS_jugador -= 35* (100/defensa_jugador)
+            r_oponente["placaje"] += 1
+            
 
-            #Si el ataque del oponente es pistola de agua, el jugador perderá 40 puntos de vida.
+        #Si el ataque del oponente es pistola de agua, el jugador perderá 40 puntos de vida.
         elif ataque_oponente == 3: 
             PS_jugador -= 40
+            r_oponente["pistola de agua"] += 1
 
+        #De no ser ninguno de los ataques previos, la vida del jugador no se verá afectada.
         else:
             PS_jugador = PS_jugador
 
 
-#Si las vida del jugador es mayor que 0 y la vida del oponente es mayor o igual a 0, el jugador habrá ganado.
+#Si las vida del jugador es mayor que 0 y la vida del oponente es mayor o igual a 0, el jugador habrá ganado y se ha de imprimir el registro de la batalla.
 if PS_oponente <= 0 and PS_jugador > 0:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
     print ("Felicidades, has ganado! \n")
-    print (registro)
 
-##Si las vida del oponente es mayor que 0 y la vida del oponente es menor o igual a 0, el oponente habrá ganado.
+    print ("Tus movimientos fueron: ", r_jugador)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+
+##Si las vida del oponente es mayor que 0 y la vida del oponente es menor o igual a 0, el oponente habrá ganado y se ha de imprimir el registro de la batalla.
 
 elif PS_jugador <= 0 and PS_oponente > 0:
 
@@ -149,24 +160,26 @@ elif PS_jugador <= 0 and PS_oponente > 0:
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
     print ("Lo siento, has perdido! \n")
-    print (registro) 
 
-#Si las vidas de los jugadores son menores o iguales a 0, se considerará un empate.
+    print ("Tus movimientos fueron: ", r_jugador)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+
+#Si las vidas de los jugadores son menores o iguales a 0, se considerará un empate y se ha de imprimir el registro de la batalla.
 elif PS_jugador <= 0 and PS_oponente <= 0:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
 
     print ("Es un empate! \n") 
-    print (registro)
 
+    print ("Tus movimientos fueron: ", r_jugador)
+    print ("Los movimientos de tu oponente fueron: ", r_oponente)
+
+#Si las vidas de los participantes no cumplen con las condiciones establecidas, se ha de imprimir su vida y se acabará el juego.
 else:
     print ("A tu oponente le quedan ", PS_oponente, "puntos de vida")
     print ("A tu pokemon le quedan ", PS_jugador, "puntos de vida")
     
     quit ()
- 
-
-    
 
     
 
