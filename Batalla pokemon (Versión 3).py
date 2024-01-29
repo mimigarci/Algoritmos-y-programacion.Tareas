@@ -127,7 +127,7 @@ while PS_jugador > 0 and PS_oponente > 0:
                 continue
 
         #En caso de que el ataque del jugador sea placaje, su vida disminuirá en un 35* (100/defensa_jugador) 
-        elif ataque_jugador == 2:
+        elif ataque_jugador == ataque[1]:
             PS_jugador -= 35* (100/defensa_jugador)
             r_oponente["placaje"] += 1
             
@@ -181,5 +181,3 @@ else:
     
     quit ()
  
-
-
