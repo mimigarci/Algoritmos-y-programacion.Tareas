@@ -1,4 +1,4 @@
-#28/01/24
+#01/02/24
 #Hagamos una batalla pokemon utilizando diccionarios
 #Autor: Michelle García
 
