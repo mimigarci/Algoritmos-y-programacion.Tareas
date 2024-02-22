@@ -1,1 +1,162 @@
+TDA Seller
+    var dinámicas
+        concesionario(str)
+        disponibilidad(bool)
+        - True: disponible
+        - False: no disponible
+    
+    constructor:
+        fun vendedor (self, concesionario, disponibilidad=True)
+            self.concesionario <--- concesionario
+            self.disponibilidad <--- disponibilidad
+        fin fun
+fin TDA
 
+
+
+TDA Vehicle
+    var dinámicas:
+        nombre(str)
+        fabricante(str)
+        año_lanzamiento(int)
+        seller(str)
+    
+    constructor:
+        fun vehicle (self, nombre, fabricante, año_lanzamiento, seller)  
+            nombre vehicle <--- nombre
+            fabricante vehicle <--- fabricante
+            año_lanzamiento vehicle <--- año_lanzamiento
+            seller <--- seller
+        fin fun
+fin TDA
+
+
+TDA Airplane(Vehicle)
+    var dinámicas:
+        var dinámicas(vehicle)
+        cant_alas
+    
+    constructor:
+        fun airplane (self, nombre, fabricante, año_lanzamiento, seller, cant_alas)
+            nombre vehicle <--- nombre
+            fabricante vehicle <--- fabricante
+            año_lanzamiento vehicle <--- año_lanzamiento
+            seller <--- seller
+            cant_alas <--- cant_alas
+        fin fun
+fin TDA
+
+
+TDA Boat(Vehicle)
+    var dinámicas:
+        var dinámicas(vehicle)
+        cant_velas
+    
+    constructor:
+        fun airplane (self, nombre, fabricante, año_lanzamiento, seller, cant_velas)
+            nombre vehicle <--- nombre
+            fabricante vehicle <--- fabricante
+            año_lanzamiento vehicle <--- año_lanzamiento
+            seller ---> seller
+            cant_alas <--- cant_velas
+        fin fun
+fin TDA
+
+
+TDA Car(Vehicle)
+    var dinámicas:
+        var dinámicas(vehicle)
+        cant_ruedas
+    
+    constructor:
+        fun airplane (self, nombre, fabricante, año_lanzamiento, seller, cant_ruedas)
+            nombre vehicle <--- nombre
+            fabricante vehicle <--- fabricante
+            año_lanzamiento vehicle <--- año_lanzamiento
+            seller ---> seller
+            cant_alas <--- cant_ruedas
+        fin fun
+fin TDA
+
+TDA class Program:
+    constructor:
+    lista self.Vehicles abierta en vacío
+    lista self.disponibles abierta en vacío
+
+    fun vehiculos_existentes 
+        constructor:
+            self.vehiculos_list = lista con los objetos vehicle
+
+            para cada elemento en la lista de vehiculos
+            agregarlo a la lista self.Vehicles del constructor de Program
+
+    fin fun 
+
+    fun set_seller
+        constructor:
+        self.nombre_vehiculo = nombre del vehículo al que se le debe asignar el vendedor
+
+        vender_vehiculos = nombre del concesionario ingresado por el usuario
+
+        para cada elemento dentro de self.Vehicles verificar si el nombre del
+        vehículo ingresado por el usuario concuerda con el nombre de algún vehículo dentro
+        de la lista
+
+        si el nombre se encuentra dentro de la lista, crear un objeto seller para colocar dentro
+        del seller del vehículo correspondiente
+
+            imprimir los datos modificados del objeto
+            mostrar al usuario que se registró correctamente
+
+        si no se encuentra dentro de la lista, imprimir que el vehículo no se encuentra  
+        registrado
+
+    fin fun
+
+    fun sell_vehicle
+        constructor:
+        self.nombre_vehiculo = nombre del vehículo a vender
+
+        si existen elementos dentro de la lista self.disponibles:
+            para cada elemento dentro de la lista verificar si el nombre ingresado
+            por el usuario concuerda con el nombre de algún vehículo dentro de la lista
+
+                si el vehículo concuerda: 
+                    cambiar el estado de disponibilidad del vehículo
+                    mostrar al usuario que se vendió
+                    eliminar el vehículo de la lista de vehículos disponibles
+                si no:
+                    continuar hasta encontrar un elemento que concuerde
+
+        si no existen elementos dentro de la lista, mostrar al usuario un mensaje indicando que
+        no hay vehículos disponibles
+
+    fin fun
+
+    fun menu
+         Siempre que el programa se esté ejecutando:
+
+            Mostrarle al usuario las opciones del menu y pedirle al usuario que ingrese el número
+            asociado de su elección
+
+            Si elige 1, ejecutar fun set_seller
+            Si elige 2, ejecutar fun vehiculos_disp
+            Si elige 3, ejecutar fun sell_vehicle
+            Si elige 4, dejar de ejecutar el programa
+
+            Si se ingresa un valor sin una opción asociada, imprimir un mensaje indicando 
+            que la elección es inválida
+    fin fun
+
+
+fun main
+
+    Crear un objeto programa
+    Llamar a la funcion vehículos_existentes
+    LLamar al menu del programa
+
+fin fun
+
+
+    
+            
